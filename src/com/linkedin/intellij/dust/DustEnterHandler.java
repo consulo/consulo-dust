@@ -1,5 +1,6 @@
 package com.linkedin.intellij.dust;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
@@ -12,7 +13,6 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.linkedin.intellij.dust.psi.DustFile;
 import com.linkedin.intellij.dust.psi.DustPsiUtil;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,7 +38,7 @@ public class DustEnterHandler extends EnterHandlerDelegateAdapter{
      */
     if (file instanceof DustFile
         && isBetweenHbTags(editor, file, caretOffset.get())) {
-      originalHandler.execute(editor, dataContext);
+      originalHandler.executeInCommand(editor, dataContext);
       return Result.Default;
     }
     return Result.Continue;

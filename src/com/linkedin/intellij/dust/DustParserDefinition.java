@@ -1,7 +1,11 @@
 package com.linkedin.intellij.dust;
 
+import java.io.Reader;
+
+import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
+import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.FlexAdapter;
@@ -16,9 +20,6 @@ import com.intellij.psi.tree.TokenSet;
 import com.linkedin.intellij.dust.parser.DustParser;
 import com.linkedin.intellij.dust.psi.DustFile;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.Reader;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,43 +34,52 @@ public class DustParserDefinition  implements ParserDefinition{
 
   @NotNull
   @Override
-  public Lexer createLexer(Project project) {
+  public Lexer createLexer(Project project, @NotNull LanguageVersion languageVersion) {
     return new FlexAdapter(new DustLexer((Reader) null));
   }
 
+  @Override
   @NotNull
-  public TokenSet getWhitespaceTokens() {
+  public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion) {
     return WHITE_SPACES;
   }
 
+  @Override
   @NotNull
-  public TokenSet getCommentTokens() {
+  public TokenSet getCommentTokens(@NotNull LanguageVersion languageVersion) {
     return TokenSet.create(DustTypes.COMMENT);
   }
 
+  @Override
   @NotNull
-  public TokenSet getStringLiteralElements() {
+  public TokenSet getStringLiteralElements(@NotNull LanguageVersion languageVersion) {
     return TokenSet.EMPTY;
   }
 
+  @Override
   @NotNull
-  public PsiParser createParser(final Project project) {
+  public PsiParser createParser(final Project project, @NotNull LanguageVersion languageVersion) {
     return new DustParser();
   }
 
+  @NotNull
   @Override
   public IFileElementType getFileNodeType() {
     return FILE;
   }
 
+  @Override
   public PsiFile createFile(FileViewProvider viewProvider) {
     return new DustFile(viewProvider);
   }
 
+  @NotNull
+  @Override
   public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right) {
     return SpaceRequirements.MAY;
   }
 
+  @Override
   @NotNull
   public PsiElement createElement(ASTNode node) {
     return DustTypes.Factory.createElement(node);

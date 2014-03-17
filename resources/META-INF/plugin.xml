@@ -1,0 +1,28 @@
+<idea-plugin>
+	<id>com.linkedin.intellij.dust</id>
+	<name>Dust</name>
+	<version>SNAPSHOT</version>
+	<vendor url="https://github.com/yifanz">Yi-Fan Zhang</vendor>
+	<depends>com.intellij.xml</depends>
+
+	<description><![CDATA[
+      <a href="http://linkedin.github.com/dustjs/">Dust</a> Template Support
+      ]]></description>
+
+	<category>Template Languages</category>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<fileTypeFactory implementation="com.linkedin.intellij.dust.DustFileTypeFactory"/>
+		<lang.parserDefinition language="Dust" implementationClass="com.linkedin.intellij.dust.DustParserDefinition"/>
+		<lang.formatter language="Dust" implementationClass="com.linkedin.intellij.dust.DustFormattingModelBuilder"/>
+		<completion.contributor language="Dust" implementationClass="com.linkedin.intellij.dust.DustCompletionContributor"/>
+		<gotoDeclarationHandler implementation="com.linkedin.intellij.dust.DustGotoDeclarationHandler"/>
+		<lang.fileViewProviderFactory language="Dust" implementationClass="com.linkedin.intellij.dust.DustFileViewProviderFactory"/>
+		<colorSettingsPage implementation="com.linkedin.intellij.dust.DustColorSettingsPage"/>
+		<annotator language="Dust" implementationClass="com.linkedin.intellij.dust.DustAnnotator"/>
+		<braceMatcher filetype="Dust" implementationClass="com.linkedin.intellij.dust.DustBraceMatcher"/>
+		<typedHandler implementation="com.linkedin.intellij.dust.DustTypedHandler"/>
+		<enterHandlerDelegate implementation="com.linkedin.intellij.dust.DustEnterHandler"/>
+		<lang.commenter language="Dust" implementationClass="com.linkedin.intellij.dust.DustCommenter"/>
+	</extensions>
+</idea-plugin>

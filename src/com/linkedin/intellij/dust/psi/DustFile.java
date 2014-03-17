@@ -1,13 +1,11 @@
 package com.linkedin.intellij.dust.psi;
 
+import org.jetbrains.annotations.NotNull;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.linkedin.intellij.dust.DustFileType;
 import com.linkedin.intellij.dust.DustLanguage;
-import org.jetbrains.annotations.NotNull;
-
-import javax.swing.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,10 +27,5 @@ public class DustFile  extends PsiFileBase {
   @Override
   public String toString() {
     return "Dust File";
-  }
-
-  @Override
-  public Icon getIcon(int flags) {
-    return super.getIcon(flags);
   }
 }
