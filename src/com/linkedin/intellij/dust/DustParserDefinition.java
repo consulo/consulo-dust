@@ -5,12 +5,10 @@ import java.io.Reader;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
-import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.FlexAdapter;
 import com.intellij.lexer.Lexer;
-import com.intellij.openapi.project.Project;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -20,6 +18,7 @@ import com.intellij.psi.tree.TokenSet;
 import com.linkedin.intellij.dust.parser.DustParser;
 import com.linkedin.intellij.dust.psi.DustFile;
 import com.linkedin.intellij.dust.psi.DustTypes;
+import consulo.lang.LanguageVersion;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +33,7 @@ public class DustParserDefinition  implements ParserDefinition{
 
   @NotNull
   @Override
-  public Lexer createLexer(Project project, @NotNull LanguageVersion languageVersion) {
+  public Lexer createLexer( @NotNull LanguageVersion languageVersion) {
     return new FlexAdapter(new DustLexer((Reader) null));
   }
 
@@ -58,7 +57,7 @@ public class DustParserDefinition  implements ParserDefinition{
 
   @Override
   @NotNull
-  public PsiParser createParser(final Project project, @NotNull LanguageVersion languageVersion) {
+  public PsiParser createParser(@NotNull LanguageVersion languageVersion) {
     return new DustParser();
   }
 

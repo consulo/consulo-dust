@@ -1,11 +1,15 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.codeInsight.completion.*;
+import org.jetbrains.annotations.NotNull;
+import com.intellij.codeInsight.completion.CompletionContributor;
+import com.intellij.codeInsight.completion.CompletionParameters;
+import com.intellij.codeInsight.completion.CompletionResultSet;
+import com.intellij.codeInsight.completion.CompletionType;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.patterns.PlatformPatterns;
 import com.intellij.util.ProcessingContext;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import org.jetbrains.annotations.NotNull;
+import consulo.codeInsight.completion.CompletionProvider;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +21,7 @@ public class DustCompletionContributor extends CompletionContributor {
   public DustCompletionContributor() {
     extend(CompletionType.BASIC,
         PlatformPatterns.psiElement(DustTypes.IDENTIFIER).withLanguage(DustLanguage.INSTANCE),
-        new CompletionProvider<CompletionParameters>() {
+        new CompletionProvider() {
           public void addCompletions(@NotNull CompletionParameters parameters,
                                      ProcessingContext context,
                                      @NotNull CompletionResultSet resultSet) {
