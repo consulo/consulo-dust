@@ -1,19 +1,19 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.options.colors.AttributesDescriptor;
-import com.intellij.openapi.options.colors.ColorDescriptor;
-import com.intellij.openapi.options.colors.ColorSettingsPage;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import com.intellij.openapi.editor.colors.TextAttributesKey;
+import com.intellij.openapi.fileTypes.SyntaxHighlighter;
+import com.intellij.openapi.options.colors.AttributesDescriptor;
+import com.intellij.openapi.options.colors.ColorDescriptor;
+import com.intellij.openapi.options.colors.ColorSettingsPage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -57,12 +57,6 @@ public class DustColorSettingsPage implements ColorSettingsPage {
           "  <div class=\"abc\">hello</div>\n" +
           "{/person}";
     }
-  }
-
-  @Nullable
-  @Override
-  public Icon getIcon() {
-    return DustIcons.FILE;
   }
 
   @Nonnull

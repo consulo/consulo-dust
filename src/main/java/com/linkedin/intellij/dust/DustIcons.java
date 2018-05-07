@@ -1,8 +1,7 @@
 package com.linkedin.intellij.dust;
 
-import javax.swing.Icon;
-
 import com.intellij.openapi.util.IconLoader;
+import consulo.ui.image.Image;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,6 +9,7 @@ import com.intellij.openapi.util.IconLoader;
  * Date: 1/16/13
  * Time: 3:36 PM
  */
-public interface DustIcons {
-  Icon FILE = IconLoader.getIcon("/com/linkedin/intellij/dust/icons/dust_icon.png");
+public interface DustIcons
+{
+	Image FILE = IconLoader.getIcon("/com/linkedin/intellij/dust/icons/dust_icon.png");
 }

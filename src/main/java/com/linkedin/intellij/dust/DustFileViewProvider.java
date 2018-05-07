@@ -167,12 +167,6 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
                 return false;
               }
 
-              @Nonnull
-              @Override
-              public Object[] getVariants() {
-                return new Object[0];
-              }
-
               @Override
               public boolean isSoft() {
                 return false;
