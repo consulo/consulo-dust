@@ -2,18 +2,20 @@
 package com.linkedin.intellij.dust.psi;
 
 import java.util.List;
-import org.jetbrains.annotations.*;
+
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElement;
 
 public interface DustStatements extends PsiElement {
 
-  @NotNull
+  @Nonnull
   List<DustJson> getJsonList();
 
-  @NotNull
+  @Nonnull
   List<DustTag> getTagList();
 
-  @NotNull
+  @Nonnull
   List<DustTagBlock> getTagBlockList();
 
 }

@@ -2,12 +2,13 @@
 package com.linkedin.intellij.dust.psi.impl;
 
 import java.util.List;
-import org.jetbrains.annotations.*;
+
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import static com.linkedin.intellij.dust.psi.DustTypes.*;
+
+import javax.annotation.*;
+
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.linkedin.intellij.dust.psi.*;
 
@@ -17,7 +18,7 @@ public class DustTagBlockImpl extends ASTWrapperPsiElement implements DustTagBlo
     super(node);
   }
 
-  public void accept(@NotNull PsiElementVisitor visitor) {
+  public void accept(@Nonnull PsiElementVisitor visitor) {
     if (visitor instanceof DustVisitor) ((DustVisitor)visitor).visitTagBlock(this);
     else super.accept(visitor);
   }
@@ -35,13 +36,13 @@ public class DustTagBlockImpl extends ASTWrapperPsiElement implements DustTagBlo
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public DustOpenTag getOpenTag() {
     return findNotNullChildByClass(DustOpenTag.class);
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public List<DustStatements> getStatementsList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, DustStatements.class);
   }

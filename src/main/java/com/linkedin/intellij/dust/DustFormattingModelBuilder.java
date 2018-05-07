@@ -10,8 +10,8 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.formatter.DocumentBasedFormattingModel;
 import com.intellij.psi.templateLanguages.SimpleTemplateLanguageFormattingModelBuilder;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.List;
 
@@ -26,11 +26,11 @@ import java.util.List;
 public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelBuilder {
 
   @Override
-  public TemplateLanguageBlock createTemplateLanguageBlock(@NotNull ASTNode node,
+  public TemplateLanguageBlock createTemplateLanguageBlock(@Nonnull ASTNode node,
                                                            @Nullable Wrap wrap,
                                                            @Nullable Alignment alignment,
                                                            @Nullable List<DataLanguageBlockWrapper> foreignChildren,
-                                                           @NotNull CodeStyleSettings codeStyleSettings) {
+                                                           @Nonnull CodeStyleSettings codeStyleSettings) {
     return new DustFormatterBlock(this, codeStyleSettings, node, foreignChildren);
   }
 
@@ -40,7 +40,7 @@ public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelB
    * delegate right back to us to format the DustTypes.OUTER_TYPE token we tell them to ignore,
    * causing an stack-overflowing loop.
    */
-  @NotNull
+  @Nonnull
   public FormattingModel createModel(PsiElement element, CodeStyleSettings settings) {
 
     final PsiFile file = element.getContainingFile();

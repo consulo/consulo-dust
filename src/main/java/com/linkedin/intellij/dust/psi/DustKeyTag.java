@@ -2,21 +2,23 @@
 package com.linkedin.intellij.dust.psi;
 
 import java.util.List;
-import org.jetbrains.annotations.*;
+
+import javax.annotation.*;
+
 import com.intellij.psi.PsiElement;
 
 public interface DustKeyTag extends PsiElement {
 
-  @NotNull
+  @Nonnull
   List<DustContext> getContextList();
 
   @Nullable
   DustIndexDeref getIndexDeref();
 
-  @NotNull
+  @Nonnull
   DustTagContent getTagContent();
 
-  @NotNull
+  @Nonnull
   DustTagName getTagName();
 
 }

@@ -1,85 +1,86 @@
 // This is a generated file. Not intended for manual editing.
 package com.linkedin.intellij.dust.psi;
 
-import org.jetbrains.annotations.*;
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
 
 public class DustVisitor extends PsiElementVisitor {
 
-  public void visitAttrString(@NotNull DustAttrString o) {
+  public void visitAttrString(@Nonnull DustAttrString o) {
     visitPsiElement(o);
   }
 
-  public void visitAttribute(@NotNull DustAttribute o) {
+  public void visitAttribute(@Nonnull DustAttribute o) {
     visitPsiElement(o);
   }
 
-  public void visitCloseTag(@NotNull DustCloseTag o) {
+  public void visitCloseTag(@Nonnull DustCloseTag o) {
     visitPsiElement(o);
   }
 
-  public void visitContext(@NotNull DustContext o) {
+  public void visitContext(@Nonnull DustContext o) {
     visitPsiElement(o);
   }
 
-  public void visitElseTag(@NotNull DustElseTag o) {
+  public void visitElseTag(@Nonnull DustElseTag o) {
     visitPsiElement(o);
   }
 
-  public void visitFilter(@NotNull DustFilter o) {
+  public void visitFilter(@Nonnull DustFilter o) {
     visitPsiElement(o);
   }
 
-  public void visitI18nFormat(@NotNull DustI18nFormat o) {
+  public void visitI18nFormat(@Nonnull DustI18nFormat o) {
     visitPsiElement(o);
   }
 
-  public void visitIndexDeref(@NotNull DustIndexDeref o) {
+  public void visitIndexDeref(@Nonnull DustIndexDeref o) {
     visitPsiElement(o);
   }
 
-  public void visitJson(@NotNull DustJson o) {
+  public void visitJson(@Nonnull DustJson o) {
     visitPsiElement(o);
   }
 
-  public void visitKeyTag(@NotNull DustKeyTag o) {
+  public void visitKeyTag(@Nonnull DustKeyTag o) {
     visitPsiElement(o);
   }
 
-  public void visitOpenTag(@NotNull DustOpenTag o) {
+  public void visitOpenTag(@Nonnull DustOpenTag o) {
     visitPsiElement(o);
   }
 
-  public void visitPath(@NotNull DustPath o) {
+  public void visitPath(@Nonnull DustPath o) {
     visitPsiElement(o);
   }
 
-  public void visitSelfCloseTag(@NotNull DustSelfCloseTag o) {
+  public void visitSelfCloseTag(@Nonnull DustSelfCloseTag o) {
     visitPsiElement(o);
   }
 
-  public void visitStatements(@NotNull DustStatements o) {
+  public void visitStatements(@Nonnull DustStatements o) {
     visitPsiElement(o);
   }
 
-  public void visitTag(@NotNull DustTag o) {
+  public void visitTag(@Nonnull DustTag o) {
     visitPsiElement(o);
   }
 
-  public void visitTagBlock(@NotNull DustTagBlock o) {
+  public void visitTagBlock(@Nonnull DustTagBlock o) {
     visitPsiElement(o);
   }
 
-  public void visitTagContent(@NotNull DustTagContent o) {
+  public void visitTagContent(@Nonnull DustTagContent o) {
     visitPsiElement(o);
   }
 
-  public void visitTagName(@NotNull DustTagName o) {
+  public void visitTagName(@Nonnull DustTagName o) {
     visitPsiElement(o);
   }
 
-  public void visitPsiElement(@NotNull PsiElement o) {
+  public void visitPsiElement(@Nonnull PsiElement o) {
     visitElement(o);
   }
 

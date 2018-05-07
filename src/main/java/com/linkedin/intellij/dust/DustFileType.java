@@ -3,8 +3,8 @@ package com.linkedin.intellij.dust;
 import javax.swing.Icon;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.highlighter.EditorHighlighter;
 import com.intellij.openapi.fileTypes.EditorHighlighterProvider;
@@ -29,28 +29,28 @@ public class DustFileType extends LanguageFileType {
     // register highlighter - lazy singleton factory
     FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
       public EditorHighlighter getEditorHighlighter(@Nullable Project project,
-                                                    @NotNull FileType fileType,
+                                                    @Nonnull FileType fileType,
                                                     @Nullable VirtualFile virtualFile,
-                                                    @NotNull EditorColorsScheme editorColorsScheme) {
+                                                    @Nonnull EditorColorsScheme editorColorsScheme) {
         return new DustLayeredSyntaxHighlighter(project, virtualFile, editorColorsScheme);
       }
     });
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public String getName() {
     return "Dust";
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public String getDescription() {
     return "Dust files";
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public String getDefaultExtension() {
     return DEFAULT_EXTENSION;
   }

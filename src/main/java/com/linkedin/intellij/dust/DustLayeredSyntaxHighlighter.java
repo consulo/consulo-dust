@@ -1,7 +1,7 @@
 package com.linkedin.intellij.dust;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.ide.highlighter.HtmlFileType;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -23,7 +23,7 @@ import com.linkedin.intellij.dust.psi.DustTypes;
  * Time: 2:44 PM
  */
 public class DustLayeredSyntaxHighlighter extends LayeredLexerEditorHighlighter {
-  public DustLayeredSyntaxHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
+  public DustLayeredSyntaxHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @Nonnull EditorColorsScheme colors) {
     // create main highlighter
     super(new DustSyntaxHighlighter(), colors);
 

@@ -1,6 +1,7 @@
 package com.linkedin.intellij.dust.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
@@ -14,11 +15,11 @@ import com.linkedin.intellij.dust.DustLanguage;
  * Time: 2:12 PM
  */
 public class DustFile  extends PsiFileBase {
-  public DustFile(@NotNull FileViewProvider viewProvider) {
+  public DustFile(@Nonnull FileViewProvider viewProvider) {
     super(viewProvider, DustLanguage.INSTANCE);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public FileType getFileType() {
     return DustFileType.INSTANCE;

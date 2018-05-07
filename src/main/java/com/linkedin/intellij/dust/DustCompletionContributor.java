@@ -1,6 +1,7 @@
 package com.linkedin.intellij.dust;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.codeInsight.completion.CompletionContributor;
 import com.intellij.codeInsight.completion.CompletionParameters;
 import com.intellij.codeInsight.completion.CompletionResultSet;
@@ -22,9 +23,9 @@ public class DustCompletionContributor extends CompletionContributor {
     extend(CompletionType.BASIC,
         PlatformPatterns.psiElement(DustTypes.IDENTIFIER).withLanguage(DustLanguage.INSTANCE),
         new CompletionProvider() {
-          public void addCompletions(@NotNull CompletionParameters parameters,
+          public void addCompletions(@Nonnull CompletionParameters parameters,
                                      ProcessingContext context,
-                                     @NotNull CompletionResultSet resultSet) {
+                                     @Nonnull CompletionResultSet resultSet) {
             resultSet.addElement(LookupElementBuilder.create("if"));
             resultSet.addElement(LookupElementBuilder.create("select"));
             resultSet.addElement(LookupElementBuilder.create("log"));

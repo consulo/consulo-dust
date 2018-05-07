@@ -11,11 +11,10 @@ import com.intellij.psi.PsiErrorElement;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.formatter.xml.SyntheticBlock;
 import com.intellij.psi.tree.IElementType;
-import com.linkedin.intellij.dust.psi.DustElseTag;
 import com.linkedin.intellij.dust.psi.DustPsiUtil;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.List;
 
@@ -28,8 +27,8 @@ import java.util.List;
  * Based on the intellij mustache plugin
  */
 public class DustFormatterBlock extends TemplateLanguageBlock {
-  DustFormatterBlock(@NotNull TemplateLanguageBlockFactory blockFactory, @NotNull CodeStyleSettings settings,
-                  @NotNull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
+  DustFormatterBlock(@Nonnull TemplateLanguageBlockFactory blockFactory, @Nonnull CodeStyleSettings settings,
+                  @Nonnull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
     super(blockFactory, settings, node, foreignChildren);
   }
 
@@ -123,7 +122,7 @@ public class DustFormatterBlock extends TemplateLanguageBlock {
    *
    * This method handles indent and alignment on Enter.
    */
-  @NotNull
+  @Nonnull
   @Override
   public ChildAttributes getChildAttributes(int newChildIndex) {
     /**

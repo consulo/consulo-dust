@@ -2,7 +2,8 @@ package com.linkedin.intellij.dust;
 
 import java.io.Reader;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
 import com.intellij.lang.ParserDefinition;
@@ -31,37 +32,37 @@ public class DustParserDefinition  implements ParserDefinition{
 
   public static final IFileElementType FILE = new IFileElementType(Language.<DustLanguage>findInstance(DustLanguage.class));
 
-  @NotNull
+  @Nonnull
   @Override
-  public Lexer createLexer( @NotNull LanguageVersion languageVersion) {
+  public Lexer createLexer( @Nonnull LanguageVersion languageVersion) {
     return new FlexAdapter(new DustLexer((Reader) null));
   }
 
   @Override
-  @NotNull
-  public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion) {
+  @Nonnull
+  public TokenSet getWhitespaceTokens(@Nonnull LanguageVersion languageVersion) {
     return WHITE_SPACES;
   }
 
   @Override
-  @NotNull
-  public TokenSet getCommentTokens(@NotNull LanguageVersion languageVersion) {
+  @Nonnull
+  public TokenSet getCommentTokens(@Nonnull LanguageVersion languageVersion) {
     return TokenSet.create(DustTypes.COMMENT);
   }
 
   @Override
-  @NotNull
-  public TokenSet getStringLiteralElements(@NotNull LanguageVersion languageVersion) {
+  @Nonnull
+  public TokenSet getStringLiteralElements(@Nonnull LanguageVersion languageVersion) {
     return TokenSet.EMPTY;
   }
 
   @Override
-  @NotNull
-  public PsiParser createParser(@NotNull LanguageVersion languageVersion) {
+  @Nonnull
+  public PsiParser createParser(@Nonnull LanguageVersion languageVersion) {
     return new DustParser();
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public IFileElementType getFileNodeType() {
     return FILE;
@@ -72,14 +73,14 @@ public class DustParserDefinition  implements ParserDefinition{
     return new DustFile(viewProvider);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right) {
     return SpaceRequirements.MAY;
   }
 
   @Override
-  @NotNull
+  @Nonnull
   public PsiElement createElement(ASTNode node) {
     return DustTypes.Factory.createElement(node);
   }

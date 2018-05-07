@@ -2,7 +2,9 @@
 package com.linkedin.intellij.dust.psi;
 
 import java.util.List;
-import org.jetbrains.annotations.*;
+
+import javax.annotation.*;
+
 import com.intellij.psi.PsiElement;
 
 public interface DustTagBlock extends PsiElement {
@@ -13,10 +15,10 @@ public interface DustTagBlock extends PsiElement {
   @Nullable
   DustElseTag getElseTag();
 
-  @NotNull
+  @Nonnull
   DustOpenTag getOpenTag();
 
-  @NotNull
+  @Nonnull
   List<DustStatements> getStatementsList();
 
 }

@@ -1,8 +1,8 @@
 // This is a generated file. Not intended for manual editing.
 package com.linkedin.intellij.dust.psi;
 
-import java.util.List;
-import org.jetbrains.annotations.*;
+import javax.annotation.*;
+
 import com.intellij.psi.PsiElement;
 
 public interface DustCloseTag extends PsiElement {
@@ -10,10 +10,10 @@ public interface DustCloseTag extends PsiElement {
   @Nullable
   DustIndexDeref getIndexDeref();
 
-  @NotNull
+  @Nonnull
   DustTagContent getTagContent();
 
-  @NotNull
+  @Nonnull
   DustTagName getTagName();
 
 }

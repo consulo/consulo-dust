@@ -1,9 +1,10 @@
 package com.linkedin.intellij.dust.psi;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.tree.IElementType;
 import com.linkedin.intellij.dust.DustLanguage;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * Time: 1:23 PM
  */
 public class DustElementType extends IElementType {
-  public DustElementType(@NotNull @NonNls String debugName) {
+  public DustElementType(@Nonnull @NonNls String debugName) {
     super(debugName, DustLanguage.INSTANCE);
   }
 }

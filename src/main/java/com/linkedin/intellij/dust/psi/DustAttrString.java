@@ -2,18 +2,20 @@
 package com.linkedin.intellij.dust.psi;
 
 import java.util.List;
-import org.jetbrains.annotations.*;
+
+import javax.annotation.Nonnull;
+
 import com.intellij.psi.PsiElement;
 
 public interface DustAttrString extends PsiElement {
 
-  @NotNull
+  @Nonnull
   List<DustI18nFormat> getI18nFormatList();
 
-  @NotNull
+  @Nonnull
   List<DustTag> getTagList();
 
-  @NotNull
+  @Nonnull
   List<DustTagBlock> getTagBlockList();
 
 }

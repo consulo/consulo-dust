@@ -1,10 +1,6 @@
 package com.linkedin.intellij.dust;
 
 import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Created with IntelliJ IDEA.

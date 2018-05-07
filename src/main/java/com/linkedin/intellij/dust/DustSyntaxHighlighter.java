@@ -4,7 +4,7 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
 
 import java.io.Reader;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.intellij.lexer.FlexAdapter;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -41,14 +41,14 @@ public class DustSyntaxHighlighter extends SyntaxHighlighterBase
 	private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
 	private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Lexer getHighlightingLexer()
 	{
 		return new FlexAdapter(new DustLexer((Reader) null));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
 	{

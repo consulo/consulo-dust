@@ -1,6 +1,7 @@
 package com.linkedin.intellij.dust;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
@@ -24,8 +25,8 @@ import com.linkedin.intellij.dust.psi.DustPsiUtil;
  */
 public class DustEnterHandler extends EnterHandlerDelegateAdapter{
 
-  public Result preprocessEnter(@NotNull final PsiFile file, @NotNull final Editor editor, @NotNull final Ref<Integer> caretOffset, @NotNull final Ref<Integer> caretAdvance,
-                                @NotNull final DataContext dataContext, final EditorActionHandler originalHandler) {
+  public Result preprocessEnter(@Nonnull final PsiFile file, @Nonnull final Editor editor, @Nonnull final Ref<Integer> caretOffset, @Nonnull final Ref<Integer> caretAdvance,
+                                @Nonnull final DataContext dataContext, final EditorActionHandler originalHandler) {
     /**
      * if we are between open and close tags, we ensure the caret ends up in the "logical" place on Enter.
      * i.e. "{#foo}<caret>{/foo}" becomes the following on Enter:

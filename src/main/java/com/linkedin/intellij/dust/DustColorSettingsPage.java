@@ -5,8 +5,8 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -65,13 +65,13 @@ public class DustColorSettingsPage implements ColorSettingsPage {
     return DustIcons.FILE;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public SyntaxHighlighter getHighlighter() {
     return new DustSyntaxHighlighter();
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getDemoText() {
     return demo;
@@ -83,19 +83,19 @@ public class DustColorSettingsPage implements ColorSettingsPage {
     return additionalHighlightingMap;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public AttributesDescriptor[] getAttributeDescriptors() {
     return DESCRIPTORS;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public ColorDescriptor[] getColorDescriptors() {
     return ColorDescriptor.EMPTY_ARRAY;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getDisplayName() {
     return "Dust";

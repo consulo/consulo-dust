@@ -5,8 +5,8 @@ import gnu.trove.THashSet;
 import java.util.Arrays;
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageParserDefinitions;
 import com.intellij.lang.html.HTMLLanguage;
@@ -68,19 +68,19 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
   }
 
 
-  @NotNull
+  @Nonnull
   @Override
   public Language getBaseLanguage() {
     return DustLanguage.INSTANCE;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Language getTemplateDataLanguage() {
     return myTemplateDataLanguage;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Set<Language> getLanguages() {
     return new THashSet<Language>(Arrays.asList(new Language[]{DustLanguage.INSTANCE, myTemplateDataLanguage}));
@@ -146,7 +146,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
                 return element;
               }
 
-              @NotNull
+              @Nonnull
               @Override
               public String getCanonicalText() {
                 return element.getText();
@@ -158,7 +158,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
               }
 
               @Override
-              public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
+              public PsiElement bindToElement(@Nonnull PsiElement element) throws IncorrectOperationException {
                 return null;
               }
 
@@ -167,7 +167,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
                 return false;
               }
 
-              @NotNull
+              @Nonnull
               @Override
               public Object[] getVariants() {
                 return new Object[0];

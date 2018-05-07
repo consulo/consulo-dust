@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 import com.linkedin.intellij.dust.psi.DustCloseTag;
 import com.linkedin.intellij.dust.psi.DustOpenTag;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  */
 public class DustAnnotator implements Annotator {
   @Override
-  public void annotate(@NotNull final PsiElement element, @NotNull AnnotationHolder holder) {
+  public void annotate(@Nonnull final PsiElement element, @Nonnull AnnotationHolder holder) {
     if (element instanceof DustOpenTag) {
       DustOpenTag openTag = (DustOpenTag) element;
       checkMatchingCloseTag(openTag, holder);
