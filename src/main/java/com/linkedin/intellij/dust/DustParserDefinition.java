@@ -1,14 +1,11 @@
 package com.linkedin.intellij.dust;
 
-import java.io.Reader;
-
 import javax.annotation.Nonnull;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
-import com.intellij.lexer.FlexAdapter;
 import com.intellij.lexer.Lexer;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
@@ -35,7 +32,7 @@ public class DustParserDefinition  implements ParserDefinition{
   @Nonnull
   @Override
   public Lexer createLexer( @Nonnull LanguageVersion languageVersion) {
-    return new FlexAdapter(new DustLexer((Reader) null));
+    return new DustLexer();
   }
 
   @Override
