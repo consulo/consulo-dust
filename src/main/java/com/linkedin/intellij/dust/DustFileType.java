@@ -1,10 +1,11 @@
 package com.linkedin.intellij.dust;
 
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.dust.icon.DustIconGroup;
 import consulo.ui.image.Image;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,8 +39,9 @@ public class DustFileType extends LanguageFileType {
     return DEFAULT_EXTENSION;
   }
 
+  @Nonnull
   @Override
   public Image getIcon() {
-    return DustIcons.FILE;
+    return DustIconGroup.dust_icon();
   }
 }

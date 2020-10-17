@@ -1,4 +1,4 @@
-<idea-plugin>
+<consulo-plugin>
 	<id>com.linkedin.intellij.dust</id>
 	<name>Dust</name>
 	<version>SNAPSHOT</version>
@@ -26,4 +26,4 @@
 		<lang.commenter language="Dust" implementationClass="com.linkedin.intellij.dust.DustCommenter"/>
 		<editorHighlighterProvider filetype="Dust" implementationClass="com.linkedin.intellij.dust.DustEditorHighlighterProvider" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>
