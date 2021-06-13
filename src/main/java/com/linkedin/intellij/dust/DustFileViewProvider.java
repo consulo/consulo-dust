@@ -83,7 +83,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
   @Nonnull
   @Override
   public Set<Language> getLanguages() {
-    return new THashSet<Language>(Arrays.asList(new Language[]{DustLanguage.INSTANCE, myTemplateDataLanguage}));
+    return Set.of(DustLanguage.INSTANCE, myTemplateDataLanguage);
   }
 
   @Override
