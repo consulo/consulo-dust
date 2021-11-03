@@ -11,6 +11,10 @@
 
 	<category>Template Languages</category>
 
+	<tags>
+		<tag>template.language</tag>
+	</tags>
+
 	<extensions defaultExtensionNs="com.intellij">
 		<fileTypeFactory implementation="com.linkedin.intellij.dust.DustFileTypeFactory"/>
 		<lang.parserDefinition language="Dust" implementationClass="com.linkedin.intellij.dust.DustParserDefinition"/>
