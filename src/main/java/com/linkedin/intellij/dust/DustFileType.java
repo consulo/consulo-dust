@@ -2,6 +2,7 @@ package com.linkedin.intellij.dust;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import consulo.dust.icon.DustIconGroup;
+import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
 
@@ -29,8 +30,8 @@ public class DustFileType extends LanguageFileType {
 
   @Override
   @Nonnull
-  public String getDescription() {
-    return "Dust files";
+  public LocalizeValue getDescription() {
+    return LocalizeValue.localizeTODO("Dust files");
   }
 
   @Override
