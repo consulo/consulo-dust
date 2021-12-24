@@ -1,4 +1,4 @@
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/consulo-dust">
 	<id>com.linkedin.intellij.dust</id>
 	<name>Dust</name>
 	<version>SNAPSHOT</version>
