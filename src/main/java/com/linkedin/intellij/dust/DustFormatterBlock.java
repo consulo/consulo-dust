@@ -1,21 +1,23 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.formatting.*;
-import com.intellij.formatting.templateLanguages.BlockWithParent;
-import com.intellij.formatting.templateLanguages.DataLanguageBlockWrapper;
-import com.intellij.formatting.templateLanguages.TemplateLanguageBlock;
-import com.intellij.formatting.templateLanguages.TemplateLanguageBlockFactory;
-import com.intellij.lang.ASTNode;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiErrorElement;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
-import com.intellij.psi.formatter.xml.SyntheticBlock;
-import com.intellij.psi.tree.IElementType;
 import com.linkedin.intellij.dust.psi.DustPsiUtil;
 import com.linkedin.intellij.dust.psi.DustTypes;
+import consulo.document.util.TextRange;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.codeStyle.Alignment;
+import consulo.language.codeStyle.ChildAttributes;
+import consulo.language.codeStyle.CodeStyleSettings;
+import consulo.language.codeStyle.Indent;
+import consulo.language.codeStyle.template.BlockWithParent;
+import consulo.language.codeStyle.template.DataLanguageBlockWrapper;
+import consulo.language.codeStyle.template.TemplateLanguageBlock;
+import consulo.language.codeStyle.template.TemplateLanguageBlockFactory;
+import consulo.language.psi.PsiErrorElement;
+import consulo.xml.psi.formatter.xml.SyntheticBlock;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ import java.util.List;
  */
 public class DustFormatterBlock extends TemplateLanguageBlock {
   DustFormatterBlock(@Nonnull TemplateLanguageBlockFactory blockFactory, @Nonnull CodeStyleSettings settings,
-                  @Nonnull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
+                     @Nonnull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
     super(blockFactory, settings, node, foreignChildren);
   }
 

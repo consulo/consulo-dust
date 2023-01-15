@@ -1,6 +1,6 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lang.Language;
+import consulo.language.Language;
 
 /**
  * Created with IntelliJ IDEA.

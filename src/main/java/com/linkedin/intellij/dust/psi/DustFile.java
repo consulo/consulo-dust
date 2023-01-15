@@ -1,12 +1,12 @@
 package com.linkedin.intellij.dust.psi;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.extapi.psi.PsiFileBase;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.FileViewProvider;
 import com.linkedin.intellij.dust.DustFileType;
 import com.linkedin.intellij.dust.DustLanguage;
+import consulo.language.file.FileViewProvider;
+import consulo.language.impl.psi.PsiFileBase;
+import consulo.virtualFileSystem.fileType.FileType;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.

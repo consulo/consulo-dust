@@ -1,19 +1,20 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler;
-import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.search.FileTypeIndex;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.util.indexing.FileBasedIndex;
 import com.linkedin.intellij.dust.psi.*;
-import javax.annotation.Nullable;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.Editor;
+import consulo.dataContext.DataContext;
+import consulo.language.editor.navigation.GotoDeclarationHandler;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiManager;
+import consulo.language.psi.scope.GlobalSearchScope;
+import consulo.language.psi.search.FileTypeIndex;
+import consulo.language.psi.stub.FileBasedIndex;
+import consulo.project.Project;
+import consulo.virtualFileSystem.VirtualFile;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.List;
  *
  * Allows goto declaration shortcut on dust partial tags
  */
+@ExtensionImpl
 public class DustGotoDeclarationHandler implements GotoDeclarationHandler {
   @Nullable
   @Override
@@ -64,7 +66,7 @@ public class DustGotoDeclarationHandler implements GotoDeclarationHandler {
             if (manager != null) {
               Project project = manager.getProject();
               Collection<VirtualFile> virtualFiles = FileBasedIndex.getInstance().getContainingFiles(
-                  FileTypeIndex.NAME, DustFileType.INSTANCE, GlobalSearchScope.allScope(project)
+                FileTypeIndex.NAME, DustFileType.INSTANCE, GlobalSearchScope.allScope(project)
               );
               List<PsiElement> foundElements = new ArrayList<PsiElement>();
               PsiFile containingFile = sourceElement.getContainingFile();

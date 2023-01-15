@@ -1,19 +1,23 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lang.Language;
-import com.intellij.lang.LanguageParserDefinitions;
-import com.intellij.lang.html.HTMLLanguage;
-import com.intellij.openapi.fileTypes.PlainTextLanguage;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.*;
-import com.intellij.psi.impl.source.PsiFileImpl;
-import com.intellij.psi.templateLanguages.*;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.util.IncorrectOperationException;
 import com.linkedin.intellij.dust.psi.DustPsiUtil;
 import com.linkedin.intellij.dust.psi.DustTokenType;
 import com.linkedin.intellij.dust.psi.DustTypes;
+import consulo.document.util.TextRange;
+import consulo.language.Language;
+import consulo.language.ast.IElementType;
+import consulo.language.impl.file.MultiplePsiFilesPerDocumentFileViewProvider;
+import consulo.language.impl.psi.PsiFileImpl;
+import consulo.language.impl.psi.template.TemplateDataElementType;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.plain.PlainTextLanguage;
+import consulo.language.psi.*;
+import consulo.language.template.TemplateDataLanguageMappings;
+import consulo.language.template.TemplateLanguage;
+import consulo.language.template.TemplateLanguageFileViewProvider;
+import consulo.language.util.IncorrectOperationException;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.xml.lang.html.HTMLLanguage;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,7 +31,8 @@ import java.util.Set;
  */
 public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider implements TemplateLanguageFileViewProvider {
   public static IElementType OUTER_TYPE = new DustTokenType("OUTER");
-  private static final TemplateDataElementType templateDataElementType = new TemplateDataElementType("DUST_TEMPLATE_DATA", DustLanguage.INSTANCE, DustTypes.HTML, OUTER_TYPE);
+  private static final TemplateDataElementType
+    templateDataElementType = new TemplateDataElementType("DUST_TEMPLATE_DATA", DustLanguage.INSTANCE, DustTypes.HTML, OUTER_TYPE);
 
   // main language of the file (HTML)
   private final Language myTemplateDataLanguage;
@@ -45,7 +50,7 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
     if (dataLang instanceof TemplateLanguage) {
       myTemplateDataLanguage = PlainTextLanguage.INSTANCE;
     } else {
-      myTemplateDataLanguage = LanguageSubstitutors.INSTANCE.substituteLanguage(dataLang, file, manager.getProject());
+      myTemplateDataLanguage = LanguageSubstitutors.substituteLanguage(dataLang, file, manager.getProject());
     }
   }
 
@@ -84,11 +89,11 @@ public class DustFileViewProvider extends MultiplePsiFilesPerDocumentFileViewPro
   protected PsiFile createFile(Language lang) {
     // creating file for main lang (HTML)
     if (lang == myTemplateDataLanguage) {
-      PsiFileImpl file = (PsiFileImpl) LanguageParserDefinitions.INSTANCE.forLanguage(lang).createFile(this);
+      PsiFileImpl file = (PsiFileImpl) ParserDefinition.forLanguage(lang).createFile(this);
       file.setContentElementType(templateDataElementType);
       return file;
     } else if (lang == DustLanguage.INSTANCE) {
-      return LanguageParserDefinitions.INSTANCE.forLanguage(lang).createFile(this);
+      return ParserDefinition.forLanguage(lang).createFile(this);
     } else {
       return null;
     }

@@ -1,10 +1,13 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lang.Language;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.FileViewProviderFactory;
-import com.intellij.psi.PsiManager;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.file.FileViewProvider;
+import consulo.language.file.LanguageFileViewProviderFactory;
+import consulo.language.psi.PsiManager;
+import consulo.virtualFileSystem.VirtualFile;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,9 +15,16 @@ import com.intellij.psi.PsiManager;
  * Date: 2/1/13
  * Time: 2:40 PM
  */
-public class DustFileViewProviderFactory  implements FileViewProviderFactory {
+@ExtensionImpl
+public class DustFileViewProviderFactory  implements LanguageFileViewProviderFactory {
   @Override
   public FileViewProvider createFileViewProvider(VirtualFile virtualFile, Language language, PsiManager psiManager, boolean physical) {
     return new DustFileViewProvider(psiManager, virtualFile, physical);
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return DustLanguage.INSTANCE;
   }
 }

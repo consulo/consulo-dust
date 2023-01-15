@@ -1,8 +1,9 @@
 {
   parserClass="com.linkedin.intellij.dust.parser.DustParser"
 
-  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+  extends="consulo.language.impl.psi.ASTWrapperPsiElement"
 
+  version = "3"
   psiClassPrefix="Dust"
   psiImplClassSuffix="Impl"
   psiPackage="com.linkedin.intellij.dust.psi"

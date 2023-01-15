@@ -1,18 +1,18 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.formatting.*;
-import com.intellij.formatting.templateLanguages.DataLanguageBlockWrapper;
-import com.intellij.formatting.templateLanguages.TemplateLanguageBlock;
-import com.intellij.formatting.templateLanguages.TemplateLanguageFormattingModelBuilder;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
-import com.intellij.psi.formatter.DocumentBasedFormattingModel;
-import com.intellij.psi.templateLanguages.SimpleTemplateLanguageFormattingModelBuilder;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.codeStyle.*;
+import consulo.language.codeStyle.template.DataLanguageBlockWrapper;
+import consulo.language.codeStyle.template.SimpleTemplateLanguageFormattingModelBuilder;
+import consulo.language.codeStyle.template.TemplateLanguageBlock;
+import consulo.language.codeStyle.template.TemplateLanguageFormattingModelBuilder;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 /**
@@ -20,10 +20,18 @@ import java.util.List;
  * User: yzhang
  * Date: 3/11/13
  * Time: 10:30 AM
- *
+ * <p>
  * Based on the intellij mustache plugin
  */
+@ExtensionImpl
 public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelBuilder {
+  private static final SimpleTemplateLanguageFormattingModelBuilder ourSimpleModel = new SimpleTemplateLanguageFormattingModelBuilder() {
+    @Nonnull
+    @Override
+    public Language getLanguage() {
+      return DustLanguage.INSTANCE;
+    }
+  };
 
   @Override
   public TemplateLanguageBlock createTemplateLanguageBlock(@Nonnull ASTNode node,
@@ -35,13 +43,15 @@ public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelB
   }
 
   /**
-   * We have to override {@link com.intellij.formatting.templateLanguages.TemplateLanguageFormattingModelBuilder#createModel}
+   * We have to override {@link TemplateLanguageFormattingModelBuilder#createModel}
    * since after we delegate to some templated languages, those languages (xml/html for sure, potentially others)
    * delegate right back to us to format the DustTypes.OUTER_TYPE token we tell them to ignore,
    * causing an stack-overflowing loop.
    */
   @Nonnull
-  public FormattingModel createModel(PsiElement element, CodeStyleSettings settings) {
+  public FormattingModel createModel(FormattingContext context) {
+    PsiElement element = context.getPsiElement();
+    CodeStyleSettings settings = context.getCodeStyleSettings();
 
     final PsiFile file = element.getContainingFile();
     Block rootBlock;
@@ -51,8 +61,9 @@ public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelB
     if (node.getElementType() == DustFileViewProvider.OUTER_TYPE) {
       // If we're looking at a DustTypes.HTML element, then we've been invoked by our templated
       // language.  Make a dummy block to allow that formatter to continue
-      return new SimpleTemplateLanguageFormattingModelBuilder().createModel(element, settings);
-    } else {
+      return ourSimpleModel.createModel(context);
+    }
+    else {
       rootBlock = getRootBlock(file, file.getViewProvider(), settings);
     }
 
@@ -62,5 +73,11 @@ public class DustFormattingModelBuilder extends TemplateLanguageFormattingModelB
   @Override
   public boolean dontFormatMyModel() {
     return false;
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return DustLanguage.INSTANCE;
   }
 }

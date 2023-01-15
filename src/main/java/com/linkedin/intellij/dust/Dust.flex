@@ -1,11 +1,11 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lexer.LexerBase;
-import com.intellij.psi.tree.IElementType;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import com.intellij.psi.TokenType;
-import java.util.Stack;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.TokenType;
+import consulo.language.lexer.LexerBase;
 
+import java.util.Stack;
 %%
 
 %class DustLexer

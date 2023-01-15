@@ -1,10 +1,10 @@
 package com.linkedin.intellij.dust.psi;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.psi.tree.IElementType;
 import com.linkedin.intellij.dust.DustLanguage;
+import consulo.language.ast.IElementType;
 import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.

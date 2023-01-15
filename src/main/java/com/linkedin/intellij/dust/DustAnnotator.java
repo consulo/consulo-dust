@@ -1,14 +1,14 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lang.annotation.AnnotationHolder;
-import com.intellij.lang.annotation.Annotator;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
 import com.linkedin.intellij.dust.psi.DustCloseTag;
 import com.linkedin.intellij.dust.psi.DustOpenTag;
 import com.linkedin.intellij.dust.psi.DustTypes;
-import javax.annotation.Nonnull;
+import consulo.document.util.TextRange;
+import consulo.language.editor.annotation.AnnotationHolder;
+import consulo.language.editor.annotation.Annotator;
+import consulo.language.psi.PsiElement;
 
+import javax.annotation.Nonnull;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

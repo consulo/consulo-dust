@@ -1,7 +1,7 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.openapi.fileTypes.LanguageFileType;
 import consulo.dust.icon.DustIconGroup;
+import consulo.language.file.LanguageFileType;
 import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;

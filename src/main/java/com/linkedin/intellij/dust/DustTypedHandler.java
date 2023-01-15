@@ -1,18 +1,23 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.codeInsight.editorActions.TypedHandlerDelegate;
-import com.intellij.openapi.editor.CaretModel;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Condition;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.codeStyle.CodeStyleManager;
-import com.intellij.psi.util.PsiTreeUtil;
-import com.linkedin.intellij.dust.psi.*;
+import com.linkedin.intellij.dust.psi.DustCloseTag;
+import com.linkedin.intellij.dust.psi.DustElseTag;
+import com.linkedin.intellij.dust.psi.DustPsiUtil;
+import com.linkedin.intellij.dust.psi.DustTypes;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.CaretModel;
+import consulo.codeEditor.Editor;
+import consulo.document.util.TextRange;
+import consulo.language.codeStyle.CodeStyleManager;
+import consulo.language.editor.action.TypedHandlerDelegate;
+import consulo.language.file.FileViewProvider;
+import consulo.language.psi.PsiDocumentManager;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.util.PsiTreeUtil;
+import consulo.project.Project;
+import consulo.util.lang.function.Condition;
+
 import javax.annotation.Nonnull;
 
 /**
@@ -23,7 +28,8 @@ import javax.annotation.Nonnull;
  *
  * Based on the intellij mustache plugin
  */
-public class DustTypedHandler extends TypedHandlerDelegate{
+@ExtensionImpl
+public class DustTypedHandler extends TypedHandlerDelegate {
 //  @Override
 //  public Result beforeCharTyped(char c, Project project, Editor editor, PsiFile file, FileType fileType) {
 //    int offset = editor.getCaretModel().getOffset();

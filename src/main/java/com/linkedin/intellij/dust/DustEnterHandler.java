@@ -1,19 +1,20 @@
 package com.linkedin.intellij.dust;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
-import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.actionSystem.EditorActionHandler;
-import com.intellij.openapi.editor.ex.EditorEx;
-import com.intellij.openapi.editor.highlighter.EditorHighlighter;
-import com.intellij.openapi.editor.highlighter.HighlighterIterator;
-import com.intellij.openapi.util.Ref;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
 import com.linkedin.intellij.dust.psi.DustFile;
 import com.linkedin.intellij.dust.psi.DustPsiUtil;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.Editor;
+import consulo.codeEditor.EditorEx;
+import consulo.codeEditor.EditorHighlighter;
+import consulo.codeEditor.HighlighterIterator;
+import consulo.codeEditor.action.EditorActionHandler;
+import consulo.dataContext.DataContext;
+import consulo.language.editor.action.EnterHandlerDelegateAdapter;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.util.lang.ref.Ref;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +24,8 @@ import com.linkedin.intellij.dust.psi.DustPsiUtil;
  *
  * Same logic as in the intellij mustache/handlebars plugin
  */
-public class DustEnterHandler extends EnterHandlerDelegateAdapter{
+@ExtensionImpl
+public class DustEnterHandler extends EnterHandlerDelegateAdapter {
 
   public Result preprocessEnter(@Nonnull final PsiFile file, @Nonnull final Editor editor, @Nonnull final Ref<Integer> caretOffset, @Nonnull final Ref<Integer> caretAdvance,
                                 @Nonnull final DataContext dataContext, final EditorActionHandler originalHandler) {

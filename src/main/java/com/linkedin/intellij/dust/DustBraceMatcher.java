@@ -1,14 +1,15 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.codeInsight.highlighting.BraceMatcher;
-import com.intellij.openapi.editor.highlighter.HighlighterIterator;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
 import com.linkedin.intellij.dust.psi.DustTypes;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.HighlighterIterator;
+import consulo.language.ast.IElementType;
+import consulo.language.editor.highlight.VirtualFileBraceMatcher;
+import consulo.language.psi.PsiFile;
+import consulo.virtualFileSystem.fileType.FileType;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
@@ -19,7 +20,8 @@ import java.util.Stack;
  * Date: 5/10/13
  * Time: 5:17 PM
  */
-public class DustBraceMatcher implements BraceMatcher {
+@ExtensionImpl
+public class DustBraceMatcher implements VirtualFileBraceMatcher {
 
   private static final Set<IElementType> LEFT_BRACES = new HashSet<IElementType>();
   private static final Set<IElementType> RIGHT_BRACES = new HashSet<IElementType>();
@@ -142,6 +144,12 @@ public class DustBraceMatcher implements BraceMatcher {
   @Override
   public int getCodeConstructStart(PsiFile file, int openingBraceOffset) {
     return openingBraceOffset;
+  }
+
+  @Nonnull
+  @Override
+  public FileType getFileType() {
+    return DustFileType.INSTANCE;
   }
 }
 

@@ -1,6 +1,10 @@
 package com.linkedin.intellij.dust;
 
-import com.intellij.lang.Commenter;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Commenter;
+import consulo.language.Language;
+
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -9,6 +13,7 @@ import javax.annotation.Nullable;
  * Date: 5/8/13
  * Time: 11:37 AM
  */
+@ExtensionImpl
 public class DustCommenter implements Commenter {
   @Nullable
   @Override
@@ -40,4 +45,9 @@ public class DustCommenter implements Commenter {
     return null;
   }
 
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return DustLanguage.INSTANCE;
+  }
 }
