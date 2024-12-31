@@ -7,7 +7,7 @@ import consulo.language.file.LanguageFileViewProviderFactory;
 import consulo.language.psi.PsiManager;
 import consulo.virtualFileSystem.VirtualFile;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.

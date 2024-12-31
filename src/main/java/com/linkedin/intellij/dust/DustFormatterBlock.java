@@ -16,8 +16,8 @@ import consulo.language.codeStyle.template.TemplateLanguageBlockFactory;
 import consulo.language.psi.PsiErrorElement;
 import consulo.xml.psi.formatter.xml.SyntheticBlock;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 /**

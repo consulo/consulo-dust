@@ -8,7 +8,7 @@ import consulo.language.editor.completion.lookup.LookupElementBuilder;
 import consulo.language.pattern.PlatformPatterns;
 import consulo.language.util.ProcessingContext;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.

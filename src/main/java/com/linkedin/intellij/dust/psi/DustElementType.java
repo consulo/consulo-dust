@@ -4,7 +4,7 @@ import com.linkedin.intellij.dust.DustLanguage;
 import consulo.language.ast.IElementType;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Created with IntelliJ IDEA.

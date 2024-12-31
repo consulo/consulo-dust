@@ -10,7 +10,7 @@ import consulo.language.ast.TokenType;
 import consulo.language.editor.highlight.SyntaxHighlighterBase;
 import consulo.language.lexer.Lexer;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import static consulo.colorScheme.TextAttributesKey.createTextAttributesKey;
 
