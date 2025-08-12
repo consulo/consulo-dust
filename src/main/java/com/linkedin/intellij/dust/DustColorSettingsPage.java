@@ -3,12 +3,12 @@ package com.linkedin.intellij.dust;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.colorScheme.TextAttributesKey;
 import consulo.colorScheme.setting.AttributesDescriptor;
-import consulo.colorScheme.setting.ColorDescriptor;
 import consulo.language.editor.colorScheme.setting.ColorSettingsPage;
 import consulo.language.editor.highlight.SyntaxHighlighter;
-
+import consulo.localize.LocalizeValue;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -86,13 +86,7 @@ public class DustColorSettingsPage implements ColorSettingsPage {
 
   @Nonnull
   @Override
-  public ColorDescriptor[] getColorDescriptors() {
-    return ColorDescriptor.EMPTY_ARRAY;
-  }
-
-  @Nonnull
-  @Override
-  public String getDisplayName() {
-    return "Dust";
+  public LocalizeValue getDisplayName() {
+    return LocalizeValue.localizeTODO("Dust");
   }
 }
