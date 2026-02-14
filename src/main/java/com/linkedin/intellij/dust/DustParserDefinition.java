@@ -3,6 +3,7 @@ package com.linkedin.intellij.dust;
 import com.linkedin.intellij.dust.parser.DustParser;
 import com.linkedin.intellij.dust.psi.DustFile;
 import com.linkedin.intellij.dust.psi.DustTypes;
+import com.linkedin.intellij.dust.psi.impl.DustTypesFactory;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.language.Language;
 import consulo.language.ast.ASTNode;
@@ -16,7 +17,6 @@ import consulo.language.parser.PsiParser;
 import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiFile;
 import consulo.language.version.LanguageVersion;
-
 import jakarta.annotation.Nonnull;
 
 /**
@@ -87,7 +87,7 @@ public class DustParserDefinition  implements ParserDefinition {
   @Override
   @Nonnull
   public PsiElement createElement(ASTNode node) {
-    return DustTypes.Factory.createElement(node);
+    return DustTypesFactory.createElement(node);
   }
 }
 

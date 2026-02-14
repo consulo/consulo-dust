@@ -3,7 +3,6 @@
 
   extends="consulo.language.impl.psi.ASTWrapperPsiElement"
 
-  version = "3"
   psiClassPrefix="Dust"
   psiImplClassSuffix="Impl"
   psiPackage="com.linkedin.intellij.dust.psi"
