@@ -4,6 +4,7 @@ import com.linkedin.intellij.dust.psi.DustPsiUtil;
 import com.linkedin.intellij.dust.psi.DustTokenType;
 import com.linkedin.intellij.dust.psi.DustTypes;
 import consulo.document.util.TextRange;
+import consulo.html.language.HTMLLanguage;
 import consulo.language.Language;
 import consulo.language.ast.IElementType;
 import consulo.language.impl.file.MultiplePsiFilesPerDocumentFileViewProvider;
@@ -17,7 +18,6 @@ import consulo.language.template.TemplateLanguage;
 import consulo.language.template.TemplateLanguageFileViewProvider;
 import consulo.language.util.IncorrectOperationException;
 import consulo.virtualFileSystem.VirtualFile;
-import consulo.xml.lang.html.HTMLLanguage;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

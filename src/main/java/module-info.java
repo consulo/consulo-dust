@@ -5,6 +5,7 @@
 module com.linkedin.intellij.dust {
   requires consulo.ide.api;
   requires com.intellij.xml;
+  requires com.intellij.xml.html.api;
   
   exports com.linkedin.intellij.dust;
   exports com.linkedin.intellij.dust.parser;
