@@ -1,6 +1,7 @@
 package com.linkedin.intellij.dust;
 
 import com.linkedin.intellij.dust.psi.*;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.codeEditor.Editor;
 import consulo.dataContext.DataContext;
@@ -35,12 +36,7 @@ public class DustGotoDeclarationHandler implements GotoDeclarationHandler {
     return gotoReferences(sourceElement);
   }
 
-  @Nullable
-  @Override
-  public String getActionText(DataContext context) {
-    return null;
-  }
-
+  @RequiredReadAction
   public static PsiElement[] gotoReferences(PsiElement sourceElement) {
     if (sourceElement != null) {
       PsiElement parent = sourceElement.getParent();
